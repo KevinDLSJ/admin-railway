@@ -40,6 +40,7 @@ function index(req, res) {
             //console.log(data);
             req.getConnection((err,conn) => {
                 conn.query('INSERT INTO users SET ?',[data], (err,rows) => {
+                  if(err) throw err
                   res.redirect('/pers'); 
                 });
             });
