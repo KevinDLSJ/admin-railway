@@ -12,7 +12,7 @@ function index(req, res) {
           res.json(err);
         }
         console.log("--------",pers)
-        res.render('pages/personal', { pers});
+        res.render('pages/personal', { pers });
       });
     });
   }
@@ -40,7 +40,6 @@ function index(req, res) {
             //console.log(data);
             req.getConnection((err,conn) => {
                 conn.query('INSERT INTO users SET ?',[data], (err,rows) => {
-                  if(err) throw err
                   res.redirect('/pers'); 
                 });
             });
@@ -106,7 +105,7 @@ function index(req, res) {
 
   function buscar(req, res){
     const data = req.body;
-    const busc =  data.buscador + '%'
+    const busc = '%'+ data.buscador + '%'
     console.log(busc)
     req.getConnection((err, conn)=>{
       conn.query("SELECT * FROM users WHERE name LIKE ? ORDER BY `name` ASC ", [busc], (err, pers) => {

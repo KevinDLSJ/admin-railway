@@ -23,19 +23,19 @@
   </div>
 
   <!--titulo del container-->
-  <h1 class="text-2xl font-bold text-center">Nuevo Producto</h1>
+  <h1 class="text-2xl font-bold text-center fs-3">Nuevo Producto</h1>
 
   <!--post sirve para introducir los parámetros en la solicitud HTTP para el servidor.(no quedan visibles para el usuario).-->
   <form action="" method="post" class="mt-4">
     <!--cuadro de texto paa que el usuario esciba el nombre del aticulo-->
-    <label for="">Nombre del Articulo</label>
+    <label class="fs-4">Nombre del Articulo</label>
     <input type="text" name="name" placeholder="Nombre del Articulo" class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
             bg-gray-300 focus:bg-white rounded-3xl" required>
     <!--required sirve para que no se pueda enviar el formulario sin estar previamente los campos contestados -->
 
     <!--cuadro de texto para que el usuario escriba el numero del articulo dependiendo de la base de datos
             (1="Venta directa",2="Preparado",3="Insumo",(no se puede escribir mas del numero 3))-->
-    <label for="">Tipo de Articulo</label>
+    <label class="fs-4">Tipo de Articulo</label>
     <select name="tipo_art" class="order border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 bg-gray-300 focus:bg-white rounded-3xl" required>
       <option disabled>Seleccione el tipo de articulo</option>
       {{#each pers}}
@@ -48,33 +48,28 @@
 
 
     <!--cuadro de texto para escibir el precio del articulo (solo se pueden numeros)-->
-    <label for="">Precio</label>
+    <label class="fs-4">Precio</label>
     <input type="text" name="precio" placeholder="Precio" class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
             bg-gray-300 focus:bg-white rounded-3xl" pattern="[0-9]+" min="1" required>
 
     <!--cuadro de texto para escibir el costo del articulo (solo se pueden numeros)-->
-    <label for="">Costo</label>
+    <label class="fs-4">Costo</label>
     <input type="text" name="costo" placeholder="Costo" class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
             bg-gray-300 focus:bg-white rounded-3xl" pattern="[0-9]+" required>
 
     <!--cuadro de texto para escibir el precio de la unidad (solo se pueden numeros)-->
-    <label for="">Unidad</label>
+    <label class="fs-4">Unidad</label>
     <select name="unidad" class="order border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 bg-gray-300 focus:bg-white rounded-3xl" required>
       <option disabled>Seleccione la unidad</option>
       {{#each per}}
       <option value="{{unidad}}">{{description}}</option>
       {{/each}}
-    
     </select>
-    <label for="">Imagen</label>
-    <input type="text" name="imagen" placeholder="URL de la Image" class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
-            bg-gray-300 focus:bg-white rounded-3xl" required>
     <!--<input type="text" name="unidad" placeholder="Unidad" class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
             bg-gray-300 focus:bg-white rounded-3xl" pattern="[0-9]+" required>-->
 
     <!--Boton para enviar el formulario contestado correctamente previamente-->
-    <button type="submit" class="rounded-md bg-yellow-800 w-full text-lg text-white 
-            font-semibold p-2 my-3 hover:bg-yellow-900 focus:bg-yellow-900">Agregar Producto</button>
+    <button type="submit" class="btn btn-dark btn-lg fs-4 mt-3 w-100">Agregar Producto</button>
 
     <!--Imprime error al usuario en la parte inferior de el container-->
     {{#if error}}

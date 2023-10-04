@@ -19,7 +19,7 @@
         <!--<img src="https://cdn.icon-icons.com/icons2/2483/PNG/512/user_icon_149851.png" alt="" style="height: 7rem;">-->
         </div>
     
-        <h1 class="text-2xl font-bold text-center">Editar Producto</h1>
+        <h1 class="text-2xl font-bold text-center fs-3">Editar Producto</h1>
 
         
 
@@ -27,7 +27,7 @@
           {{#each pers}}
           <!--Se valida toda la informacion previamente creada y guardada en la base de datos se pone en cuadros de texto para poder 
             editar la informacion tiene que estar contestados los campos con la informacion del producto-->
-            <label for="">Nombre del Articulo</label>
+            <label class="fs-4">Nombre del Articulo</label>
             <input type="text" name="name" placeholder="Nombre del Articulo"
             class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
             bg-gray-300 focus:bg-white rounded-3xl" value="{{name}}" required>
@@ -37,17 +37,17 @@
             bg-gray-300 focus:bg-white rounded-3xl" min="1" max="3" maxlength="1"
             oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" value="{{tipo_art}}" required> --}}
 
-            <label for="">Precio</label>
+            <label class="fs-4">Precio</label>
             <input type="text" name="precio" placeholder="Precio" 
             class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
             bg-gray-300 focus:bg-white rounded-3xl" pattern="[0-9]+" value="{{precio}}" required>
 
-            <label for="">Costo</label>
+            <label class="fs-4">Costo</label>
             <input type="text" name="costo" placeholder="Costo" 
             class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
             bg-gray-300 focus:bg-white rounded-3xl" pattern="[0-9]+" value="{{costo}}" required>
 
-            <label for="">Unidad</label>
+            <label class="fs-4">Unidad</label>
             <select name="unidad" id="" class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
             bg-gray-300 focus:bg-white rounded-3xl">
               <option value="{{unidad}}">{{description}}</option>
@@ -59,7 +59,7 @@
             <!--se guarda la informacion previamente editada del producto -->
             
 
-            <label for="">Tipo de Articulo</label>
+            <label class="fs-4">Tipo de Articulo</label>
             {{#each pers}}
             <select name="tIpo_art" id="" class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
             bg-gray-300 focus:bg-white rounded-3xl">
@@ -69,13 +69,8 @@
               <option value="{{tipo_art}}">{{descripcion}}</option>
               {{/each}}
             </select>
-
-            <label for="">Imagen</label>
-            <input type="text" name="imagen" placeholder="URL de la Image" class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
-                   bg-gray-300 focus:bg-white rounded-3xl" value="{{imagen}}" required>
       
-            <button type="submit" class="rounded-md bg-yellow-800 w-full text-lg text-white 
-            font-semibold p-2 my-3 hover:bg-yellow-900 focus:bg-yellow-900">Guardar</button>
+            <button type="submit" class="btn btn-dark btn-lg fs-4 mt-3 w-100">Guardar</button>
             </select>
         </form>
 
