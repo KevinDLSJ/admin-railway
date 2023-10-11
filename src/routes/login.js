@@ -5,6 +5,7 @@ const express = require('express');
 const LoginController = require('../controllers/LoginController');
 const persController = require('../controllers/personalController');
 const productosController = require('../controllers/productosController');
+const pedidoController = require('../controllers/pedidoController');
 
 const router = express.Router();
 
@@ -15,6 +16,8 @@ router.post('/register', LoginController.storeUser);
 router.post('/login', LoginController.auth);
 router.get('/logout', LoginController.logout);
 router.get('/personal', LoginController.personal);
+
+
 
 router.get('/pers', persController.index);
 router.get('/create', persController.create);
@@ -32,6 +35,9 @@ router.post('/productos/delete', productosController.destroy);
 router.get('/productos/editprod/:id', productosController.edit);
 router.post('/productos/editprod/:id', productosController.update);
 router.post('/productos/productos/buscar', productosController.buscar);
+
+
+router.get('/pedido', pedidoController.pedido);
 
 //Exporta las rutas 
 module.exports = router;
