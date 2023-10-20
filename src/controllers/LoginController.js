@@ -95,10 +95,6 @@ function personal(req, res) {
   res.render('pages/personal');
 }
 
-//function pedidos(req, res){
-  //res.render('pages/pedido')
-//}
-
 
 //exporta las funciones 
 module.exports = {
@@ -108,6 +104,6 @@ module.exports = {
   logout: logout,
   storeUser: storeUser,
   personal: personal,
-  //pedidos,
+
 }
 

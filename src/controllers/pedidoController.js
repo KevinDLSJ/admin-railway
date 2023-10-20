@@ -1,11 +1,11 @@
 function pedido(req, res) {
   req.getConnection((err, conn) => {
-    conn.query('SELECT a.folio, b.id_status, b.tip_status FROM pedido a, status b WHERE a.id_status=b.id_status', (err, pedi) => {
+    conn.query('SELECT b.folio,b.fecha,d.tip_status FROM pedido b JOIN status d ON b.id_status=d.id_status WHERE b.id_status=1', (err, pedi) => {
       if(err) {
         res.json(err);
       }
       console.log("--------",pedi)
-      res.render('pages/pedido', { pedi });
+      res.render('pages/pedidos', { pedi });
     });
   });
 }
@@ -25,8 +25,49 @@ function detalle(req, res) {
 
 function aceptar (req, res) {
   req.getConnection((err, conn) =>{
-    conn.query('UPDATE pedido SET id_status=2', )
+    conn.query('UPDATE pedido SET tip_status=4', (err, pers) => {
+      if(err) {
+        res.json(err);
+      }
+      res.render('pages/pedidos', { pers });
+    })
   })
+}
+
+function terminado(req, res) {
+  req.getConnection((err, conn) => {
+    conn.query('SELECT b.folio, b.fecha, b.corre_emp, b.correo_clie, d.tip_status FROM pedido b JOIN status d ON b.id_status = d.id_status WHERE  b.id_status = 2', (err, pedi) => {
+      if(err) {
+        res.json(err);
+      }
+      console.log("--------",pedi)
+      res.render('pages/terminado', { pedi });
+    });
+  });
+}
+
+function pagado(req, res) {
+  req.getConnection((err, conn) => {
+    conn.query('SELECT b.folio, b.fecha, b.corre_emp, b.correo_clie, d.tip_status FROM pedido b JOIN status d ON b.id_status = d.id_status WHERE b.id_status = 3', (err, pedi) => {
+      if(err) {
+        res.json(err);
+      }
+      console.log("--------",pedi)
+      res.render('pages/pagado', { pedi });
+    });
+  });
+}
+
+function entregado(req, res) {
+  req.getConnection((err, conn) => {
+    conn.query('SELECT b.folio, b.fecha, b.corre_emp, b.correo_clie, d.tip_status FROM pedido b JOIN status d ON b.id_status = d.id_status WHERE b.id_status = 4', (err, pedi) => {
+      if(err) {
+        res.json(err);
+      }
+      console.log("--------",pedi)
+      res.render('pages/entregado', { pedi });
+    });
+  });
 }
 
 
@@ -38,5 +79,8 @@ module.exports = {
  detalle:detalle,
  pedido,
  aceptar,
+ terminado,
+ pagado,
+ entregado,
 
 }

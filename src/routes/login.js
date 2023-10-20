@@ -17,8 +17,6 @@ router.post('/login', LoginController.auth);
 router.get('/logout', LoginController.logout);
 router.get('/personal', LoginController.personal);
 
-
-
 router.get('/pers', persController.index);
 router.get('/create', persController.create);
 router.post('/create', persController.store);
@@ -37,7 +35,12 @@ router.post('/productos/editprod/:id', productosController.update);
 router.post('/productos/productos/buscar', productosController.buscar);
 
 
-router.get('/pedido', pedidoController.pedido);
+router.get('/detalle', pedidoController.detalle);
+router.get('/pedidos', pedidoController.pedido);
+router.get('/terminado', pedidoController.terminado);
+router.get('/pagado', pedidoController.pagado);
+router.get('/entregado', pedidoController.entregado);
+router.post('/pedidos/aceptar', pedidoController.aceptar);
 
 //Exporta las rutas 
 module.exports = router;

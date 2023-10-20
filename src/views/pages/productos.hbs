@@ -8,13 +8,13 @@
 
   }
 
-  .buscador {
-    position: relative;
-    left: 20rem;
-    top: 1rem;
-    /*margin-left: 16rem;
+   .buscador {
+        position: relative;
+        left: 20rem;
+        top: 1rem;
+        /*margin-left: 16rem;
         margin-right: 8rem;*/
-  }
+    }
 </style>
 
 
@@ -48,6 +48,7 @@
     </form>
 
   </div>
+
 
 
   <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -86,15 +87,10 @@
                   <i class="fas fa-trash"></i></button>
               </form>
               <!--boton editar producto-->
-              <a href="/productos/editprod/{{id_producto}}"
-                class="bg-green-500 text-white px-3 py-2 rounded-sm h-10 w-10">
+              <a href="/productos/editprod/{{id_producto}}" class="bg-green-500 text-white px-3 py-2 rounded-sm h-10 w-10">
                 <i class="fas fa-pen"></i></a>
             </td>
           </tr>
-          {{else}}
-          <div class="texto-no-encontrado">
-            <h5 style="font-size:xx-large; font-family:Arial, Helvetica, sans-serif;">No se encontro el producto, por favor vuelve a buscar</h5>
-          </div>
           {{/each}}
         </tbody>
       </table>
