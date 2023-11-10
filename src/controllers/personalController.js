@@ -19,8 +19,17 @@ function index(req, res) {
   
 //Redirige a la pagina para crear un nuevo usuario
   function create(req, res) {
-  
-    res.render('pages/create');
+    const data=req.body;
+    req.getConnection((err,conn) => {
+      conn.query('SELECT * FROM users WHERE email= ?',[data.email], (err,userData) => {
+        req.getConnection((err, conn) => {
+          conn.query('SELECT * FROM tip_usuarios', (err, usi) => {
+            res.render('pages/create', {usi})
+
+          })
+        });
+      });
+    });
   }
   
 //La fuincion tiene el trabajo de verificar si el usuario (email) se repite (Con el querie) entra a una condicion
@@ -75,7 +84,11 @@ function index(req, res) {
         if(err) {
           res.json(err);
         }
-        res.render('pages/edit', { pers });
+        req.getConnection((err, conn) => {
+          conn.query('SELECT * FROM tip_usuarios', (err, usi) => {
+            res.render('pages/edit', { pers, usi});
+          })
+        })
       });
     });
   }

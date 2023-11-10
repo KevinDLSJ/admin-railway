@@ -3,7 +3,7 @@
 //Muestra los datos en una tabla
 function indexp(req, res) {
     req.getConnection((err, conn) => {
-      conn.query('SELECT a.costo, a.unidad_medida, a.id_producto, a.name, b.descripcion, a.precio, c.description FROM product a, articulo b, units c WHERE a.tipo_art=b.tipo_art and a.unidad_medida=c.unidad_medida ORDER BY `name` ASC', (err, pers) => {
+      conn.query('SELECT a.costo, a.unidad, a.id_producto, a.name, b.descripcion, a.precio, c.description FROM product a, articulo b, units c WHERE a.tipo_art=b.tipo_art and a.unidad=c.unidad ORDER BY `name` ASC', (err, pers) => {
         if(err) {
           res.json(err);
         }

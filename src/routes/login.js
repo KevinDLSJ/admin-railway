@@ -5,7 +5,6 @@ const express = require('express');
 const LoginController = require('../controllers/LoginController');
 const persController = require('../controllers/personalController');
 const productosController = require('../controllers/productosController');
-const pedidoController = require('../controllers/pedidoController');
 
 const router = express.Router();
 
@@ -34,13 +33,6 @@ router.get('/productos/editprod/:id', productosController.edit);
 router.post('/productos/editprod/:id', productosController.update);
 router.post('/productos/productos/buscar', productosController.buscar);
 
-
-router.get('/detalle', pedidoController.detalle);
-router.get('/pedidos', pedidoController.pedido);
-router.get('/terminado', pedidoController.terminado);
-router.get('/pagado', pedidoController.pagado);
-router.get('/entregado', pedidoController.entregado);
-router.post('/pedidos/aceptar', pedidoController.aceptar);
 
 //Exporta las rutas 
 module.exports = router;

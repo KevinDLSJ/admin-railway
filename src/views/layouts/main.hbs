@@ -1,6 +1,7 @@
 <style>
   .metta-cafetery {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: larger;
     margin-left: 5rem;
     margin-top: -53px;
 
@@ -17,7 +18,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--titulo de la pagina web-->
-  <title>Administrador Metta Cafetery</title>
+  <title>Metta Cafetery Administrador</title>
   <!-- Tailwind CSS Link -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.1/tailwind.min.css">
   <!-- Fontawesome Link -->
@@ -32,13 +33,12 @@
   <!--color del encabezado-->
   <div class="encabezado">
     <nav class="flex py-2 bg-white  px-0 ">
-      <div class="w-100px px-12 mr-auto mb-3" href="/">
+      <div class="w-1/2 px-12 mr-auto" href="/">
         <!--titulo del encabezado-->
         <a class="navbar-brand " href="/">
-          <img src="https://cdn-icons-png.flaticon.com/512/2734/2734039.png" width="80" height="80"
-            class="d-inline-block align-top" alt="">
+          <img class="d-inline-block align-top" src="https://cdn-icons-png.flaticon.com/512/2734/2734039.png" width="80" height="80">
           <div class="metta-cafetery">
-            <span class="fs-4">Metta Cafetery</span>
+            <span>Metta Cafetery</span>
 
           </div>
 
@@ -57,61 +57,41 @@
       <ul class="w-1/2 px-1 ml-auto flex justify-end pt-1">
         <!--si el nombre es correcto apareceran los siguientes 3 botones -->
 
-        {{#if contador}}
-        <div class="container-icon">
-
-
-
-
-
-          <div class="carrito">
-            <a href="/carrito" class="bg-yellow-900 ">
-              <svg xmlns="http://www.w3.org/2000/svg" width="90px" height="50px" fill="black" class="bi bi-bag"
-                viewBox="0 0 16 16">
-                <path
-                  d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
-              </svg>
-
-            </a>
-
-
-            <div class="contador-productos">
-              {{#if contador}}
-              <span>{{contador}}</span>
-              {{/if}}
-            </div>
-            <!--<a href="/carrito" class="text-white hover:text-black nav-link font-semibold border-2 border-white hover:bg-yellow-800 py-3 px-3 rounded-pill">Carrito</a>-->
-
-          </div>
-
-
-
-
-        </div>
-        {{/if}}
-
-
         {{#if name}}
 
 
         <li class="nav-item px-4">
           <!--boton que cierra sesion-->
-          <a href="/logout" class="btn btn-outline-danger btn-lg mt-2">Logout</a>
+          <a href="/logout" class="btn btn-outline-danger btn-lg">Logout</a>
         </li>
 
-        <li class="nav-item px-4">
-          <!--boton para ver los pedidos-->
-          <a href="/pedidos" class="btn btn-outline-primary btn-lg mt-2">Pendientes</a>
+        <div class="dropdown">
+          <select class="btn btn-outline-primary btn-lg dropdown-toggle" type="button" id="dropdownMenu2"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Reporte 
+          <option>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <option><a class="dropdown-item" href="pages/create" type="button">Reporte de Ventas</a></option>
+              <option><a class="dropdown-item" href="" type="button">Reporte de Detalles</a></option>
+              <option><a class="dropdown-item" href="" type="button">Reporte de Trabajor</a></option>
+              <option><a class="dropdown-item" href="" type="button">Reporte de Producto</a></option>
+            </ul>
+          </option>
+          </select>
+        </div>
+
+
+
+        <li class="nav-item px-3">
+          <!--boton para ver los productos-->
+          <a href="/productos" class="btn btn-outline-primary btn-lg">Productos</a>
         </li>
-        <a href="/terminado" class="btn btn-outline-primary btn-lg h-12 mt-2">Terminados</a>
-        </li>
-        <li class="nav-item px-4">
+        <li class="nav-item px-3">
           <!--boton para ir hacia el archivo de personal-->
-          <a href="/entregado" class="btn btn-outline-primary btn-lg mt-2">Entregados</a>
+          <a href="/pers" class="btn btn-outline-primary btn-lg">Personal</a>
         </li>
         <!--<img class="img-fluid" src="https://cdn.icon-icons.com/icons2/2483/PNG/512/user_icon_149851.png" width="60px" height="60px" />-->
-
-        <i class="px-2 mt-3">
+        <i class="px-2 ">
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-person-circle"
             viewBox="0 0 16 16">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -119,14 +99,31 @@
               d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
           </svg>
         </i>
+        <h6>
+          <font size="3" color="black">{{name}}</font>
+        </h6>
+        <!--si no es correcto se mostrara el siguiente boton-->
+        {{else}}
 
+        {{/if}}
 
-
-
-        <span class="fs-4 mr-4 mt-2">{{name}}
-
-        </span>
-
+        {{#if pedi}}
+        <li class="nav-item px-4">
+          <!--boton que cierra sesion-->
+          <a href="/logout" class="btn btn-outline-danger btn-lg">Logout</a>
+        </li>
+        <li class="nav-item px-4">
+          <!--boton para ver los productos-->
+          <a href="/productos" class="btn btn-outline-primary btn-lg">Productos</a>
+        </li>
+        <li class="nav-item px-4">
+          <!--boton para ir hacia el archivo de personal-->
+          <a href="/pers" class="btn btn-outline-primary btn-lg">Personal</a>
+        </li>
+        <!--<img class="img-fluid" src="https://cdn.icon-icons.com/icons2/2483/PNG/512/user_icon_149851.png" width="60px" height="60px" />-->
+        <h6>
+          <font size="3" color="black">{{name}}</font>
+        </h6>
         <!--si no es correcto se mostrara el siguiente boton-->
         {{else}}
 
