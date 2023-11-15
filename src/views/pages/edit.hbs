@@ -43,11 +43,6 @@
     <input type="text" name="ap_materno" placeholder="Apellido Materno" class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
             bg-gray-300 focus:bg-white rounded-3xl" value="{{ap_materno}}">
 
-    <label class="fs-4">Numero de Telefono</label>
-    <input type="text" name="telefono" placeholder="Numero de Telefono" maxlength="10"
-      oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
-            bg-gray-300 focus:bg-white rounded-3xl" value="{{telefono}}" required>
-    
     <label class="fs-4">Tipo de Personal</label>
     <select name="Id_rol"
       class="order border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 bg-gray-300 focus:bg-white rounded-3xl"
@@ -60,6 +55,12 @@
     </select>
 
     {{#each pers}}
+    <label class="fs-4">Numero de Telefono</label>
+    <input type="text" name="telefono" placeholder="Numero de Telefono" maxlength="10"
+      oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
+            bg-gray-300 focus:bg-white rounded-3xl" value="{{telefono}}" required>
+
+
     <label class="fs-4">Correo Electronico</label>
     <input type="email" name="email" placeholder="Email" class="border border-gray-200 w-full text-lg placeholder-gray-500 p-2 my-2 
             bg-gray-300 focus:bg-white rounded-3xl" value="{{email}}" required>

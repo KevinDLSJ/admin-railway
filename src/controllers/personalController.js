@@ -19,17 +19,19 @@ function index(req, res) {
   
 //Redirige a la pagina para crear un nuevo usuario
   function create(req, res) {
-    const data=req.body;
-    req.getConnection((err,conn) => {
-      conn.query('SELECT * FROM users WHERE email= ?',[data.email], (err,userData) => {
-        req.getConnection((err, conn) => {
+    const data = req.body;
+
+    req.getConnection((err, conn) => {
+      conn.query('SELECT * FROM users WHERE email=?', [data.email], (err,userData) => {
+        req.getConnection((err, conn)  => {
           conn.query('SELECT * FROM tip_usuarios', (err, usi) => {
             res.render('pages/create', {usi})
-
           })
-        });
-      });
-    });
+        })
+      })
+    })
+  
+    res.render('pages/create');
   }
   
 //La fuincion tiene el trabajo de verificar si el usuario (email) se repite (Con el querie) entra a una condicion

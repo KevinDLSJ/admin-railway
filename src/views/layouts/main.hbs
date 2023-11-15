@@ -8,6 +8,9 @@
 
 
 
+  }.metta-cafetery{
+    margin-bottom: 2rem;
+    
   }
 </style>
 <!--Indica la versión de HTML que se usó para escribir el documento e idioma.-->
@@ -33,12 +36,13 @@
   <!--color del encabezado-->
   <div class="encabezado">
     <nav class="flex py-2 bg-white  px-0 ">
-      <div class="w-1/2 px-12 mr-auto" href="/">
+      <div class="w-100px px-12 mr-auto" href="/">
         <!--titulo del encabezado-->
         <a class="navbar-brand " href="/">
-          <img class="d-inline-block align-top" src="https://cdn-icons-png.flaticon.com/512/2734/2734039.png" width="80" height="80">
+          <img class="d-inline-block align-top" src="https://cdn-icons-png.flaticon.com/512/2734/2734039.png" width="80"
+            height="80">
           <div class="metta-cafetery">
-            <span>Metta Cafetery</span>
+            <span class="fs-4">Metta Cafetery</span>
 
           </div>
 
@@ -60,38 +64,54 @@
         {{#if name}}
 
 
-        <li class="nav-item px-4">
+        <li class="nav-item px-4 mt-2">
           <!--boton que cierra sesion-->
           <a href="/logout" class="btn btn-outline-danger btn-lg">Logout</a>
         </li>
 
-        <div class="dropdown">
+        <!--<div class="dropdown">
           <select class="btn btn-outline-primary btn-lg dropdown-toggle" type="button" id="dropdownMenu2"
             data-bs-toggle="dropdown" aria-expanded="false">
             Reporte 
-          <option>
+          <option disabled>Seleccione el tipo de reporte
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <option><a class="dropdown-item" href="pages/create" type="button">Reporte de Ventas</a></option>
+              <option value=""><a class="dropdown-item" href="/reporteventa" >Reporte de Ventas</a></option>
               <option><a class="dropdown-item" href="" type="button">Reporte de Detalles</a></option>
               <option><a class="dropdown-item" href="" type="button">Reporte de Trabajor</a></option>
               <option><a class="dropdown-item" href="" type="button">Reporte de Producto</a></option>
             </ul>
           </option>
+          
+        </div>-->
+        <form action="">
+          <select name="ramos" onchange="location = this.value" class="btn btn-outline-primary dropdown-toggle btn-lg mt-2 mr-4">
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+              <option>Reportes</option>
+              <option value="reporteventa">Reporte de ventas</option>
+              <option value="">Reporte de detalles</option>
+              <option value="">Reporte de trabajador</option>
+              <option value="">Reporte de producto</option>
+            </ul>
           </select>
-        </div>
+        </form>
 
 
 
-        <li class="nav-item px-3">
+
+
+
+
+        <li class="nav-item px-3 mt-2">
           <!--boton para ver los productos-->
           <a href="/productos" class="btn btn-outline-primary btn-lg">Productos</a>
         </li>
-        <li class="nav-item px-3">
+        <li class="nav-item px-3 mt-2">
           <!--boton para ir hacia el archivo de personal-->
           <a href="/pers" class="btn btn-outline-primary btn-lg">Personal</a>
         </li>
         <!--<img class="img-fluid" src="https://cdn.icon-icons.com/icons2/2483/PNG/512/user_icon_149851.png" width="60px" height="60px" />-->
-        <i class="px-2 ">
+        
+        <i class="px-2 mt-3">
           <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="black" class="bi bi-person-circle"
             viewBox="0 0 16 16">
             <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
@@ -99,9 +119,9 @@
               d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
           </svg>
         </i>
-        <h6>
-          <font size="3" color="black">{{name}}</font>
-        </h6>
+        <h5 class="mt-3">
+          <font  color="black" >{{name}}</font>
+        </h5>
         <!--si no es correcto se mostrara el siguiente boton-->
         {{else}}
 
