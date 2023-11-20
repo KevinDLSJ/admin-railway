@@ -36,5 +36,6 @@ router.post('/productos/productos/buscar', productosController.buscar);
 
 
 router.get('/reporteventa', reportesController.reporteventa);
+router.post('/reporteventa', reportesController.fechadia);
 //Exporta las rutas 
 module.exports = router;

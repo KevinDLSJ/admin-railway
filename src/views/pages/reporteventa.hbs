@@ -24,11 +24,12 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-ES">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <title>Reporte Venta</title>
 </head>
 
@@ -104,20 +105,26 @@
                 <div class="fecha">
                     <label class="fs-4 ">Fecha</label>
                     <input type="date" name="fecha" placeholder="fecha" class="border border-gray-200 w-500px text-lg placeholder-gray-500 p-2 my-2 
-            bg-gray-300 focus:bg-white rounded-3xl ml-3" value="{{name}}" required>
-                    <button type="submit" class="btn btn-success btn-sm fs-5 w-25 ml-5">Generar</button>
-
+            bg-gray-300 focus:bg-white rounded-3xl ml-3" value="" required>
+            <form action="/reporteventa" method="post">
+                <button type="submit" class="btn btn-success btn-sm fs-5 w-25 ml-5">Generar</button>
+            </form>
+            <br class="">
+                {{#each hoy}}
+                    {{fecha}}
+                {{/each}}
+                Total: {{total}}
                 </div>
                 <div class="periodo">
                     <label class="fs-4">Periodo</label>
                     <input type="date" name="fecha" placeholder="fecha" class="border border-gray-200 w-50% text-lg placeholder-gray-500 p-2 my-2 
-            bg-gray-300 focus:bg-white rounded-3xl ml-3" value="{{name}}" required>
+            bg-gray-300 focus:bg-white rounded-3xl ml-3" value="{{name}}">
                     <label class="fs-4 ml-5">Fin del periodo</label>
 
                 </div>
 
                 <input type="date" name="fecha" placeholder="fecha" class="border border-gray-200 w-50 text-lg placeholder-gray-500 p-2 my-2 
-            bg-gray-300 focus:bg-white rounded-3xl  mt-3" value="{{name}}" required>
+            bg-gray-300 focus:bg-white rounded-3xl  mt-3" value="{{name}}">
 
                 <div class="generar-reporte">
                     <button type="submit" class="btn btn-success btn-sm  w-25 fs-5 ml-8 ">Generar</button>
