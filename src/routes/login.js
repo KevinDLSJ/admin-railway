@@ -35,7 +35,11 @@ router.post('/productos/editprod/:id', productosController.update);
 router.post('/productos/productos/buscar', productosController.buscar);
 
 
-router.get('/reporteventa', reportesController.reporteventa);
-router.post('/reporteventa', reportesController.fechadia);
+router.get('/c-rep-venta', reportesController.reporteventa);
+router.post('/c-rep-venta', reportesController.fechadia);
+router.get('/c-rep-venta', reportesController.createreporteventa);
+router.get('/c-rep-detalle', reportesController.createreportedetalle);
+router.get('/c-rep-trabajador', reportesController.createreportetrabajador);
+router.get('/c-rep-producto', reportesController.createreporteproducto);
 //Exporta las rutas 
 module.exports = router;
