@@ -35,8 +35,14 @@ router.post('/productos/editprod/:id', productosController.update);
 router.post('/productos/productos/buscar', productosController.buscar);
 
 
-router.get('/c-rep-venta', reportesController.reporteventa);
-router.post('/c-rep-venta', reportesController.fechadia);
+router.post('/rep-venta_d', reportesController.venta_dia);
+router.post('/rep-venta_p', reportesController.venta_periodo);
+router.post('/rep-trabajador_d', reportesController.trabajador_dia);
+router.post('/rep-trabajador_p', reportesController.trabajador_periodo);
+router.post('/rep-producto_d', reportesController.producto_dia);
+router.post('/rep-producto_p', reportesController.producto_periodo);
+router.post('/rep-detalle_d', reportesController.detalle_dia);
+router.post('/rep-detalle_p', reportesController.detalle_periodo);
 router.get('/c-rep-venta', reportesController.createreporteventa);
 router.get('/c-rep-detalle', reportesController.createreportedetalle);
 router.get('/c-rep-trabajador', reportesController.createreportetrabajador);

@@ -7,7 +7,7 @@ function indexp(req, res) {
         if(err) {
           res.json(err);
         }
-        console.log("--------",pers)
+        //console.log("--------",pers)
         res.render('pages/productos', { pers });
       });
     });
@@ -59,7 +59,7 @@ function indexp(req, res) {
     req.getConnection((err, conn) => {
      conn.query('SELECT a.id_producto,a.tipo_art,a.name,a.precio,a.costo,a.unidad,b.descripcion, c.description FROM product a, articulo b, units c where a.id_producto=? and b.tipo_art = a.tipo_art and a.unidad=c.unidad', [id_producto], (err, pers) => {
         if(err) {
-          console.log(err);
+          //console.log(err);
         
 
         
@@ -68,7 +68,7 @@ function indexp(req, res) {
           conn.query('SELECT * FROM articulo', (err, art)=>{
             req.getConnection((err, conn)=>{
               conn.query('SELECT * FROM units', (err, uni)=>{
-                console.log(art)
+                //console.log(art)
                 res.render('pages/editprod', { pers, art, uni})
               })
             })
@@ -99,9 +99,9 @@ function indexp(req, res) {
     console.log(busc)
     req.getConnection((err, conn)=>{
       conn.query("SELECT a.costo, a.unidad, a.id_producto, a.name, b.descripcion, a.precio, c.description FROM product a, articulo b, units c WHERE a.tipo_art=b.tipo_art and a.unidad=c.unidad and a.name LIKE ? ORDER BY `name` ASC ", [busc], (err, pers) => {
-        console.log(data.buscador)
-        console.log(err)
-        console.log(pers)
+        //console.log(data.buscador)
+        //console.log(err)
+        //console.log(pers)
         res.render('pages/productos', {pers})
         
       });

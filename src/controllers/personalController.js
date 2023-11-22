@@ -11,7 +11,7 @@ function index(req, res) {
         if(err) {
           res.json(err);
         }
-        console.log("--------",pers)
+        //console.log("--------",pers)
         res.render('pages/personal', { pers });
       });
     });
@@ -45,7 +45,7 @@ function index(req, res) {
           res.render('pages/create', {error: 'El usuario ya existe!'});
         } else {
           bcrypt.hash(data.password, 12).then(hash => {
-            console.log(hash);
+            //console.log(hash);
             data.password=hash;
             //console.log(data);
             req.getConnection((err,conn) => {
@@ -103,7 +103,7 @@ function index(req, res) {
     const data = req.body;
 
     bcrypt.hash(data.password, 12).then(hash => {
-      console.log(hash);
+      //console.log(hash);
       data.password=hash;
   
     req.getConnection((err, conn) => {
@@ -120,12 +120,12 @@ function index(req, res) {
   function buscar(req, res){
     const data = req.body;
     const busc = '%'+ data.buscador + '%'
-    console.log(busc)
+    //console.log(busc)
     req.getConnection((err, conn)=>{
       conn.query("SELECT * FROM users WHERE name LIKE ? ORDER BY `name` ASC ", [busc], (err, pers) => {
-        console.log(data.buscador)
+        /*console.log(data.buscador)
         console.log(err)
-        console.log(pers)
+        console.log(pers)*/
         res.render('pages/personal', {pers})
         
       });

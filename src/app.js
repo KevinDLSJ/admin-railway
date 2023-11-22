@@ -9,7 +9,7 @@ const { Session } = require('express-session');
 
 
 //Define que si hay un valor existente lo uso sino usa el ya definido
-const PORT = process.env.PORT || 5000 ;
+const PORT = process.env.PORT || 4000 ;
 
 const DB_HOST = process.env.DB_HOST || 'localhost';
 const DB_USER = process.env.DB_USER || 'root';
